@@ -6,6 +6,15 @@ app.get("/", (req, res) => res.type('html').send(html));
 app.get('/redirect', (req, res) => {
   res.redirect('https://www.example.com');
 });
+app.get('/json', (req, res) => {
+  const data = {
+    message: "Hello, world!",
+    status: "success",
+    timestamp: new Date().toISOString()
+  };
+  
+  res.json(data);
+});
 
 const server = app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 
